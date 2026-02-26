@@ -65,7 +65,7 @@ int main() {
 
     cout << "==== Printing the slot lengths ====" << endl;
 
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < k; i++){
         cout << "Slot " << i << ": ";
         cout << slotLength(table[i]) << "\n";
     }
