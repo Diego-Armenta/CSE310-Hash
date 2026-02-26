@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 #include "hash.h"
 
 
@@ -17,16 +18,20 @@ int hashFunction(string text, node** table, int num) {
 
 int hashValue(string text) {
     int i;
+     unsigned long long h = 1469598103934665603ULL;
     int value = 0;
     for(i = 0; i < text.length(); i++){
-        int h = 1;
-        h = 31 * (int)text[i] - 13 * (int)text[i];
-        value += h;
-    }
-    
-    int index = value % k;
+        char c = text[i];
+        switch (i % 3) {
+            case 0: h = h * 131ULL + c; break;
+            case 1: h = h * 97ULL  + c; break;
+            case 2: h = h * 257ULL + c; break;
+        }
 
-    return index;
+        h ^= (h >> 13); // cheap extra mix
+    }
+
+    return (int)(h % (unsigned long long)k);
 }
 
 
