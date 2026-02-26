@@ -5,12 +5,13 @@
 
 using namespace std;
 
-int standardDeviation(){
-    
+double standardDeviation(double sum, int k){
+    double value = sum/k;
+    return sqrt(value);
 }
 
-double mean(double a, double b){
-    double mean = a/b;
+double mean(double a, int b){
+    double mean = a/(double)b;
     return mean;
 }
 

@@ -24,10 +24,10 @@ int main() {
     string line;
     getline(cin, line);
 
-    /*while (getline(cin, line)) {
+    while (getline(cin, line)) {
         texts[n] = line;
         n++;
-    }*/
+    }
     // WARNING: End of the tokenizer, DO NOT change this part!
 
     // By this point, k is the # of slots, and n is the # of tokens to fit in
@@ -41,20 +41,11 @@ int main() {
     // Your time to shine starts now
 
     node* table[k] = {nullptr};
-
-    //hashTable(table, k);
-
-    string one;
-    string two;
-    string three;
     
 
-    cin >> one;
-    cin >> two;
-    cin >> three;
-    hashFunction(one, table);
-    hashFunction(two, table);
-    hashFunction(three, table);
+    for(int i = 0; i < n; i++){
+        hashFunction(texts[i], table, k);
+    }
 
     
     
@@ -78,8 +69,14 @@ int main() {
         cout << "Slot " << i << ": ";
         cout << slotLength(table[i]) << "\n";
     }
+    cout << "==== Printing the standard deviation ====" << endl;
+    double average = mean(k, n);
+    double numerator = 0;
+    for(int i = 0; i < k; i++){
+        numerator += sum(slotLength(table[i]), average);
+    }
 
-    cout << "==== Printing the standard deviation =====" << endl;
+    cout << fixed << setprecision(4)<< standardDeviation(numerator, k) << endl;
 
     return 0;
 }

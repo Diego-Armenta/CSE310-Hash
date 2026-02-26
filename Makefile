@@ -1,2 +1,2 @@
 all:
-	g++ -std=c++11 -o encoder main.cpp hash.cpp
+	g++ -std=c++11 main.cpp hash.cpp linkedList.cpp math.cpp -o encoder

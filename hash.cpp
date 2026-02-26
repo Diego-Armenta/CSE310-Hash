@@ -5,8 +5,10 @@
 
 using namespace std;
 
-int hashFunction(string text, node** table) {
-      
+int k;
+
+int hashFunction(string text, node** table, int num) {
+    k = num;
     int index = hashValue(text);
     addToBucket(index, text, table);
 
@@ -20,7 +22,7 @@ int hashValue(string text) {
         value += (int)text[i];
     }
     
-    int index = value % 5;
+    int index = value % k;
 
     return index;
 }
@@ -37,13 +39,6 @@ int addToBucket(int index, string text, node** table){
             temp = temp->next;
         }
         temp->next = n;
-    }
-    return 1;
-}
-
-int hashTable(node** table, int k){
-    for(int i = 0; i < k; i++){
-        table[i]->data = "";
     }
     return 1;
 }

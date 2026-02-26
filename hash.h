@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int hashFunction(string text, node** table);
+int hashFunction(string text, node** table, int k);
 int hashTable(node** table, int k);
 int addToBucket(int index, string text, node** table);
 int hashValue(string text);
