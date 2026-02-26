@@ -1,4 +1,4 @@
-5
+7
 Amazon
 Boeing
 apple
@@ -8,3 +8,9 @@ banana
 elephant 
 boring
 barbaric
+Andy
+Reed
+Vik
+Cora
+Diego
+Alden

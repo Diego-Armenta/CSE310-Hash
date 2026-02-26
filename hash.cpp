@@ -18,20 +18,22 @@ int hashFunction(string text, node** table, int num) {
 
 int hashValue(string text) {
     int i;
-     unsigned long long h = 1469598103934665603ULL;
-    int value = 0;
+    unsigned int h = 359;
+
     for(i = 0; i < text.length(); i++){
         char c = text[i];
-        switch (i % 3) {
-            case 0: h = h * 131ULL + c; break;
-            case 1: h = h * 97ULL  + c; break;
-            case 2: h = h * 257ULL + c; break;
-        }
-
-        h ^= (h >> 13); // cheap extra mix
+        h = ((h*41) + (unsigned int)c);
     }
 
-    return (int)(h % (unsigned long long)k);
+    h ^= h >> 16;
+    h *= 0x7feb352du;
+    h ^= h >> 15;
+    h *= 0x846ca68bu;
+    h ^= h >> 16;
+
+
+    int idx = (int)(h % (unsigned int)k);
+    return idx;
 }
 
 
