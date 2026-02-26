@@ -19,7 +19,9 @@ int hashValue(string text) {
     int i;
     int value = 0;
     for(i = 0; i < text.length(); i++){
-        value += (int)text[i];
+        int h = 1;
+        h = 31 * (int)text[i] - 13 * (int)text[i];
+        value += h;
     }
     
     int index = value % k;
