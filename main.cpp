@@ -1,14 +1,16 @@
 /*
 CSE 310 Hash Function DIY Contest
 Instructor: Yiran "Lawrence" Luo
-Your name(s):
-Your team alias: 
+Your name(s): Diego Armenta, VikramThevar
+Your team alias: Demure Juggers
 */
 
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include "hash.h"
+
+
 using namespace std;
 
 int main() {
@@ -22,10 +24,10 @@ int main() {
     string line;
     getline(cin, line);
 
-    while (getline(cin, line)) {
+    /*while (getline(cin, line)) {
         texts[n] = line;
         n++;
-    }
+    }*/
     // WARNING: End of the tokenizer, DO NOT change this part!
 
     // By this point, k is the # of slots, and n is the # of tokens to fit in
@@ -38,9 +40,44 @@ int main() {
 
     // Your time to shine starts now
 
+    node* table[k] = {nullptr};
+
+    //hashTable(table, k);
+
+    string one;
+    string two;
+    string three;
+    
+
+    cin >> one;
+    cin >> two;
+    cin >> three;
+    hashFunction(one, table);
+    hashFunction(two, table);
+    hashFunction(three, table);
+
+    
+    
+
+
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
 
+    for(int i = 0; i < 5; i++){
+        cout << "Slot " << i << ": ";
+        node* temp = table[i];
+        while(temp != nullptr){
+            cout << temp->data <<" ";
+            temp = temp-> next;
+        }
+        cout << "\n";
+    }
+
     cout << "==== Printing the slot lengths ====" << endl;
+
+    for(int i = 0; i < 5; i++){
+        cout << "Slot " << i << ": ";
+        cout << slotLength(table[i]) << "\n";
+    }
 
     cout << "==== Printing the standard deviation =====" << endl;
 
