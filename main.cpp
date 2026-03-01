@@ -1,7 +1,7 @@
 /*
 CSE 310 Hash Function DIY Contest
 Instructor: Yiran "Lawrence" Luo
-Your name(s): Diego Armenta, VikramThevar
+Your name(s): Diego Armenta, Vikram Thevar
 Your team alias: Demure Juggers
 */
 
@@ -40,7 +40,8 @@ int main() {
 
     // Your time to shine starts now
 
-    node* table[k] = {nullptr};
+    node** table = new node*[k];
+    for (int i = 0; i < k; i++) table[i] = nullptr;
     
 
     for(int i = 0; i < n; i++){
@@ -54,10 +55,12 @@ int main() {
     cout << "==== Printing the contents of the first 5 slots ====" << endl;
 
     for(int i = 0; i < 5; i++){
-        cout << "Slot " << i << ": ";
+        cout << "Slot " << i << ":";
         node* temp = table[i];
+        bool first = true;
         while(temp != nullptr){
-            cout << temp->data <<" ";
+            cout << (first ? " " : " ") << temp->data;
+            first = false;
             temp = temp-> next;
         }
         cout << "\n";
@@ -70,13 +73,15 @@ int main() {
         cout << slotLength(table[i]) << "\n";
     }
     cout << "==== Printing the standard deviation ====" << endl;
-    double average = mean(k, n);
+    double average = mean(n, k);
     double numerator = 0;
     for(int i = 0; i < k; i++){
         numerator += sum(slotLength(table[i]), average);
     }
 
     cout << fixed << setprecision(4)<< standardDeviation(numerator, k) << endl;
+
+    delete[] table;
 
     return 0;
 }

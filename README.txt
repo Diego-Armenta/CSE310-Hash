@@ -1,5 +1,5 @@
 Team name: Demure Juggers
-Team member(s): Diego Armenta
+Team member(s): Diego Armenta, Vikram Thevar
 
 Functionality: The functionality of this program is fairly simple. I created a linkedList file to implement nodes and creating new nodes to add to a list, as well as a math file that does the calculations for the standard deviation. The hash file
 contains the actual hashfunction which takes each character of a string, transforms it into its ascii value, does operations on that depending on its position in the string, adds all the values up and then returns the value modulo k to give its index. 
