@@ -17,24 +17,22 @@ int hashFunction(string text, node** table, int num) {
 }
 
 int hashValue(string text) {
-    int i;
-    unsigned int h = 359;
+   unsigned int h = 359u;
 
-    for(i = 0; i < text.length(); i++){
-        char c = text[i];
-        h = ((h*41) + (unsigned int)c);
+    for (int i = 0; i < (int)text.size(); i++) {
+        h = h * 41u + (unsigned int)(unsigned char)text[i];
     }
 
+    // avalanche finalizer 
     h ^= h >> 16;
     h *= 0x7feb352du;
     h ^= h >> 15;
     h *= 0x846ca68bu;
     h ^= h >> 16;
 
-
-    int idx = (int)(h % (unsigned int)k);
-    return idx;
+    return (int)(h % (unsigned int)k);
 }
+
 
 
 

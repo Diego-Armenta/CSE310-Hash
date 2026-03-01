@@ -70,7 +70,7 @@ int main() {
         cout << slotLength(table[i]) << "\n";
     }
     cout << "==== Printing the standard deviation ====" << endl;
-    double average = mean(k, n);
+    double average = mean(n, k);
     double numerator = 0;
     for(int i = 0; i < k; i++){
         numerator += sum(slotLength(table[i]), average);
